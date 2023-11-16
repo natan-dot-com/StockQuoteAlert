@@ -1,5 +1,6 @@
-﻿using NamespaceStock;
-using System.Text.Json.Nodes;
+﻿using System.Text.Json.Nodes;
+
+using NamespaceStockState;
 
 namespace NamespaceStockAPI;
 
@@ -14,9 +15,9 @@ internal class StockAPI
         _httpClient = new HttpClient();
     }
 
-    public async Task<Stock> fetch(string stock)
+    public async Task<(decimal, string)> fetch(string stock)
     {
-        string content = "";
+        string content = string.Empty;
         string url = makeUrl(stock);
 
         try
@@ -34,7 +35,7 @@ internal class StockAPI
         
         decimal price = parsed["regularMarketPrice"]!.GetValue<decimal>();
         string currency = parsed["currency"]!.GetValue<string>();
-        return new Stock(stock, price, currency);
+        return (price, currency);
     }
 
     private string makeUrl(string stock) => String.Format("https://brapi.dev/api/quote/{0}?token={1}", stock, _key);

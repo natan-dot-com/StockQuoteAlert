@@ -1,22 +1,30 @@
-﻿using System;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-
-using NamespaceStock;
+﻿using NamespaceStockState;
 using NamespaceStockAPI;
+using NamespaceEmailHandler;
+using NamespaceUtility;
+using NamespaceConfig;
+using NamespaceArguments;
+using NamespaceStockObserver;
 
 internal static class Program
 {
     public static async Task Main(string[] args)
     {
-        string stock = "PETR4";
-        string key = "eTD1U371z4ybsxyDhkCCDg";
+        Arguments parsedArgs = Utility.parseArgs(args);
+        Config? parsedConfig = Utility.parseConfiguration("C:\\Users\\natan\\source\\repos\\StockQuoteAlert\\StockQuoteAlert\\Config.json");
 
-        var APIHandler = new StockAPI(key);
-        Stock body = await APIHandler.fetch(stock);
-        Console.WriteLine(body.ToString()); 
+        var APIHandler = new StockAPI(parsedConfig!.API.key);
+        var emailHandler = new EmailHandler(parsedConfig!.Email.host, parsedConfig!.Email.username, parsedConfig!.Email.password);
+        emailHandler.addSender(parsedConfig!.Email.senderList);
+
+        var observer = new StockObserver(emailHandler, parsedArgs.lowerbound, parsedArgs.upperbound);
+        var state = new StockState(parsedArgs.targetStock, APIHandler);
+        state.Attach(observer);
+        
+        while (true)
+        {
+            await state.updateAndNotify();
+            Thread.Sleep(10000);
+        }
     }
 }
