@@ -12,6 +12,7 @@ internal static class Program
     {
         Arguments parsedArgs = Utility.parseArgs(args);
         Config? parsedConfig = Utility.parseConfiguration("C:\\Users\\natan\\source\\repos\\StockQuoteAlert\\StockQuoteAlert\\Config.json");
+        Console.WriteLine($"Initializing Stock Alert for {parsedArgs!.targetStock}");
 
         var APIHandler = new StockAPI(parsedConfig!.API.key);
         var emailHandler = new EmailHandler(parsedConfig!.Email.host, parsedConfig!.Email.username, parsedConfig!.Email.password);
