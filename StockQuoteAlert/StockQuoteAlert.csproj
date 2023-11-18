@@ -8,4 +8,13 @@
     <StartupObject>Program</StartupObject>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Update="appconfig - Copy.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="appconfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
