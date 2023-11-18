@@ -1,10 +1,9 @@
 ﻿using System.Globalization;
 using System.Text.Json;
 
-using NamespaceArguments;
-using NamespaceConfig;
+using StockQuoteAlert.Parsing;
 
-namespace NamespaceUtility;
+namespace StockQuoteAlert.Utility;
 
 internal class Utility
 {

@@ -1,17 +1,16 @@
-﻿using NamespaceStockState;
-using NamespaceStockAPI;
-using NamespaceEmailHandler;
-using NamespaceUtility;
-using NamespaceConfig;
-using NamespaceArguments;
-using NamespaceStockObserver;
+﻿using StockQuoteAlert.State;
+using StockQuoteAlert.API;
+using StockQuoteAlert.Email;
+using StockQuoteAlert.Utility;
+using StockQuoteAlert.Parsing;
+using StockQuoteAlert.Observer;
 
 internal static class Program
 {
     public static async Task Main(string[] args)
     {
         Arguments parsedArgs = Utility.parseArgs(args);
-        Config? parsedConfig = Utility.parseConfiguration("C:\\Users\\natan\\source\\repos\\StockQuoteAlert\\StockQuoteAlert\\Config.json");
+        Config? parsedConfig = Utility.parseConfiguration("appconfig.json");
         Console.WriteLine($"Initializing Stock Alert for {parsedArgs!.targetStock}");
 
         var APIHandler = new StockAPI(parsedConfig!.API.key);

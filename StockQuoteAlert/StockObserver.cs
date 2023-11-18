@@ -1,7 +1,7 @@
-﻿using NamespaceEmailHandler;
-using NamespaceStockState;
+﻿using StockQuoteAlert.Email;
+using StockQuoteAlert.State;
 
-namespace NamespaceStockObserver;
+namespace StockQuoteAlert.Observer;
 
 internal class StockObserver
 {

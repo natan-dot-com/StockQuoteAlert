@@ -1,9 +1,9 @@
 ﻿using System.Net;
 using System.Net.Mail;
 
-using NamespaceStockState;
+using StockQuoteAlert.State;
 
-namespace NamespaceEmailHandler;
+namespace StockQuoteAlert.Email;
 
 internal class EmailHandler
 {

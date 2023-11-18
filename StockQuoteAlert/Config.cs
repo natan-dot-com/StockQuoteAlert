@@ -1,4 +1,4 @@
-﻿namespace NamespaceConfig;
+﻿namespace StockQuoteAlert.Parsing;
 
 class Config
 {

@@ -1,7 +1,7 @@
-﻿using NamespaceStockAPI;
-using NamespaceStockObserver;
+﻿using StockQuoteAlert.API;
+using StockQuoteAlert.Observer;
 
-namespace NamespaceStockState;
+namespace StockQuoteAlert.State;
 
 internal class StockState
 {

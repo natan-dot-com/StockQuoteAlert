@@ -1,4 +1,4 @@
-﻿namespace NamespaceArguments;
+﻿namespace StockQuoteAlert.Parsing;
 
 internal class Arguments
 {

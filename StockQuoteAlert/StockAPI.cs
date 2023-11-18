@@ -1,8 +1,6 @@
 ﻿using System.Text.Json.Nodes;
 
-using NamespaceStockState;
-
-namespace NamespaceStockAPI;
+namespace StockQuoteAlert.API;
 
 internal class StockAPI
 {
