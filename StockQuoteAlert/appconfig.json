@@ -1,15 +1,14 @@
 {
   "API": {
-    "key": "{brapi_api_secret}"
+    "key": "eTD1U371z4ybsxyDhkCCDg"
   },
   "Email": {
-    "host": "{smtp_server_host}",
-    "username": "{smtp_server_username}",
-    "password": "{smtp_server_password}",
+    "host": "sandbox.smtp.mailtrap.io",
+    "username": "11a039a8d2617f",
+    "password": "678779597ab8c5",
     "senderList": [
-      "user1@email.com",
-      "user2@email.com",
-      "..."
+      "sefen11111@eazenity.com",
+      "sefen26502@eazenity.com"
     ]
   }
 }
