@@ -10,7 +10,7 @@ internal static class Program
     public static async Task Main(string[] args)
     {
         Arguments parsedArgs = Utility.ParseArgs(args);
-        Config? parsedConfig = Utility.ParseConfiguration("appconfig_original.json");
+        Config? parsedConfig = Utility.ParseConfiguration("appconfig.json");
         Console.WriteLine($"Initializing Stock Alert for {parsedArgs!.targetStock}");
 
         var apiHandler = new StockAPI(parsedConfig!.api.key);
