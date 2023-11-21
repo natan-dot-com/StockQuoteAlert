@@ -13,10 +13,10 @@ internal class StockAPI
         _httpClient = new HttpClient();
     }
 
-    public async Task<(decimal, string)> fetch(string stock)
+    public async Task<(decimal, string)> Fetch(string stock)
     {
         string content = string.Empty;
-        string url = makeUrl(stock);
+        string url = MakeUrl(stock);
 
         try
         {
@@ -36,5 +36,5 @@ internal class StockAPI
         return (price, currency);
     }
 
-    private string makeUrl(string stock) => String.Format("https://brapi.dev/api/quote/{0}?token={1}", stock, _key);
+    private string MakeUrl(string stock) => String.Format("https://brapi.dev/api/quote/{0}?token={1}", stock, _key);
 }

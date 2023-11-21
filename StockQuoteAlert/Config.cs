@@ -15,6 +15,6 @@ class Config
         public List<string> senderList { get; set; } = new List<string>();
     }
 
-    public APIConfig API {  get; set; }
-    public EmailConfig Email { get; set; }
+    public APIConfig api {  get; set; }
+    public EmailConfig email { get; set; }
 }

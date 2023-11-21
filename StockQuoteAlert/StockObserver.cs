@@ -26,12 +26,12 @@ internal class StockObserver
         if (stock.price < _lowerbound)
         {
             Console.WriteLine(@$"Detected price for {stock.targetStock} lower than the specified threshold. Sending a notification e-mail...");
-            _emailHandler.sendEmails(stock, true);
+            _emailHandler.SendEmails(stock, true);
         }
         else if (stock.price > _upperbound)
         {
             Console.WriteLine(@$"Detected price for {stock.targetStock} greater than the specified threshold. Sending a notification e-mail...");
-            _emailHandler.sendEmails(stock, false);
+            _emailHandler.SendEmails(stock, false);
         }
     }
 }

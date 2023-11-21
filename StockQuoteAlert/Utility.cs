@@ -7,13 +7,13 @@ namespace StockQuoteAlert.Utility;
 
 internal class Utility
 {
-    public static Config? parseConfiguration(string jsonFilePath)
+    public static Config? ParseConfiguration(string jsonFilePath)
     {
         string text = File.ReadAllText(jsonFilePath);
         return JsonSerializer.Deserialize<Config>(text);
     }
 
-    public static Arguments parseArgs(string[] args)
+    public static Arguments ParseArgs(string[] args)
     {
         string targetStock = args[0];
         decimal lowerbound = 0.0M;

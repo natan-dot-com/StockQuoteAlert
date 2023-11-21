@@ -7,8 +7,8 @@ namespace StockQuoteAlert.Email;
 
 internal class EmailHandler
 {
-    SmtpClient _smtp;
-    HashSet<MailAddress> _senderSet;
+    private SmtpClient _smtp;
+    private HashSet<MailAddress> _senderSet;
 
     public EmailHandler(string host, string username, string password)
     {
@@ -21,9 +21,9 @@ internal class EmailHandler
         };
     }
 
-    public void sendEmails(StockState stock, bool buyStock)
+    public void SendEmails(StockState stock, bool buyStock)
     {
-        var message = buyStock ? createBuyMessage(stock) : createSellMessage(stock);
+        var message = buyStock ? CreateBuyMessage(stock) : CreateSellMessage(stock);
 
         foreach (MailAddress address in _senderSet)
         {
@@ -32,9 +32,9 @@ internal class EmailHandler
         _smtp.Send(message);
     }
 
-    public void addSender(string sender_email) => _senderSet!.Add(new MailAddress(sender_email));
+    public void AddSender(string sender_email) => _senderSet!.Add(new MailAddress(sender_email));
 
-    public void addSender(List<string> sender_emails)
+    public void AddSender(List<string> sender_emails)
     {
         foreach (string email in sender_emails) 
         {
@@ -42,7 +42,7 @@ internal class EmailHandler
         }
     }
 
-    private MailMessage createSellMessage(StockState stock) => new()
+    private MailMessage CreateSellMessage(StockState stock) => new()
     {
         From = new MailAddress("noreply@stockalert.com"),
         Subject = $"Selling advice regarding one of your assets: {stock.targetStock}",
@@ -52,7 +52,7 @@ internal class EmailHandler
         IsBodyHtml = true,
     };
 
-    private MailMessage createBuyMessage(StockState stock) => new()
+    private MailMessage CreateBuyMessage(StockState stock) => new()
     {
         From = new MailAddress("noreply@stockalert.com"),
         Subject = $"Buying advice regarding one of your assets: {stock.targetStock}",

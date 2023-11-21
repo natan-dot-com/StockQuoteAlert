@@ -1,8 +1,8 @@
 {
-  "API": {
+  "api": {
     "key": "{brapi_api_secret}"
   },
-  "Email": {
+  "email": {
     "host": "{smtp_server_host}",
     "username": "{smtp_server_username}",
     "password": "{smtp_server_password}",
