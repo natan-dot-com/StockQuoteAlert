@@ -25,10 +25,10 @@ For this application to work, it requires a JSON configuration file, `appconfig.
 
 ```json
 {
-  "API": {
+  "api": {
     "key": "{brapi_api_secret}"
   },
-  "Email": {
+  "email": {
     "host": "{smtp_server_host}",
     "username": "{smtp_server_username}",
     "password": "{smtp_server_password}",
